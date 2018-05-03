@@ -1,0 +1,40 @@
+{
+   "name": "trump-twitter-tracker-server",
+   "version": "1.0.0",
+   "description": "Server to get trump tweets",
+   "main": "index.js",
+   "dependencies": {
+      "body-parser": "^1.18.2",
+      "boom": "^7.2.0",
+      "command-line-args": "^5.0.2",
+      "express": "^4.16.3",
+      "express-validation": "^1.0.2",
+      "joi": "^13.2.0",
+      "joi-objectid": "^2.0.0",
+      "mongodb": "^3.0.7",
+      "uuid": "^3.2.1"
+   },
+   "devDependencies": {
+      "nodemon": "^1.17.3"
+   },
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node index.js -p 3005",
+      "dev": "nodemon index.js -p 3005"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/El-Dringo-Brannde/trump-twitter-tracker-server.git"
+   },
+   "keywords": [
+      "data",
+      "visualization",
+      "highcharts"
+   ],
+   "author": "Brandon Dring",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/El-Dringo-Brannde/trump-twitter-tracker-server/issues"
+   },
+   "homepage": "https://github.com/El-Dringo-Brannde/trump-twitter-tracker-server#readme"
+}
