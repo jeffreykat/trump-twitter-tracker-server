@@ -11,6 +11,8 @@
       "express-validation": "^1.0.2",
       "joi": "^13.2.0",
       "joi-objectid": "^2.0.0",
+      "lodash": "^4.17.10",
+      "moment": "^2.22.1",
       "mongodb": "^3.0.7",
       "uuid": "^3.2.1"
    },
