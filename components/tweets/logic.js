@@ -17,7 +17,44 @@ module.exports = class tweetController extends mongodb {
 
    //GET Section
    async allWords(req, res) {
+      let results = await self.read()
+      res.json(results)
+   }
 
+   // used for sunburst chart
+   async types(req, res) {
+      let typeAgg = [{
+         $project: {
+            nouns: '$nouns',
+            adjectives: '$adjectives',
+            adverbs: '$adverbs',
+            verbs: '$verbs'
+         }
+      }]
+      let results = await self.aggregate(typeAgg)
+      results = results[0]
+      delete results._id
+
+      let wordCloudData = []
+      let idx = 0
+      for (var i in results) {
+         let curID = uuid()
+         wordCloudData.push({
+            name: i,
+            id: curID,
+            parent: ''
+         })
+         for (var j of results[i]) {
+            wordCloudData.push({
+               name: j.term,
+               value: j.tf,
+               parent: curID,
+               id: uuid()
+            })
+         }
+         idx++
+      }
+      res.json(wordCloudData)
    }
 
    async popular(req, res) {
