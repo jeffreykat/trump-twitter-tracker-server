@@ -17,7 +17,19 @@ module.exports = class tweetController extends mongodb {
 
    //GET Section
    async allWords(req, res) {
-      let results = await self.read()
+      let allAgg = [{
+         $project: {
+            all: '$allWords'
+         }
+      }]
+      let results = await self.aggregate(allAgg)
+      results = results[0].all
+      for (var i of results) {
+         i.name = i.term;
+         i.weight = i.tf;
+         delete i.term
+         delete i.tf
+      }
       res.json(results)
    }
 
@@ -57,7 +69,7 @@ module.exports = class tweetController extends mongodb {
       res.json(wordCloudData)
    }
 
-   async popular(req, res) {
+   async wordTimes(req, res) {
 
    }
 

@@ -11,12 +11,13 @@ module.exports = function() {
 
    // [GET]
    router.get('/', controller.allWords)
-   router.get('/popular', controller.popular)
+   router.get('/all', controller.allWords)
    router.get('/types', controller.types)
-   router.get('/nouns', controller.nouns)
-   router.get('/verbs', controller.verbs)
-   router.get('/adjectives', controller.adjectives)
-   router.get('/adverbs', controller.adverbs)
+   router.get('/times', controller.wordTimes)
+   // router.get('/nouns', controller.nouns)
+   // router.get('/verbs', controller.verbs)
+   // router.get('/adjectives', controller.adjectives)
+   // router.get('/adverbs', controller.adverbs)
 
 
 
